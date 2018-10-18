@@ -39,17 +39,26 @@
                             <h3 class="title">
                                 Welcome
                             </h3>
-                            <form class="register-form" novalidate>
-                                <label>Username</label>
-                                <input type="text" class="form-control" placeholder="Username" ng-model = "user">
-
-                                <label>Password</label>
-                                <input type="password" class="form-control" placeholder="Password" ng-model = "password">
+                            
+                            
+                            <form class="register-form" name="formLogin" novalidate>
+                                <div id = "user">
+                                    <label>Username</label>
+                                    <input type="input" class="form-control" placeholder="Username" id = "form_user" ng-model = "user">
+                                </div>
+                                
+                                <div id = "password">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" placeholder="Password" id = "form_password" ng-model = "pass">
+                                </div>
+                                
+                                <div class="has-danger" style = "color: red;" ng-hide="control">Username e/o password errate</div>
                                 
                                 <button class="btn btn-outline-success btn-round" ng-click="login()">Login</button>
                                 <button class="btn btn-outline-default btn-round" ng-click="reset()">Reset</button>
                                 
                             </form>
+                            
                             
                             <div class="forgot">
                                 <a href="../register.html" class="btn btn-link btn-danger">Register?</a>

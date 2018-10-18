@@ -21,6 +21,21 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
   font-weight: 300;
 }
 
+.animate-show-hide.ng-hide {
+  opacity: 0;
+}
+
+.animate-show-hide.ng-hide-add,
+.animate-show-hide.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+
+.check-element {
+  border: 1px solid black;
+  opacity: 1;
+  padding: 10px;
+}
+
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   margin: 30px 0 0;
 }
