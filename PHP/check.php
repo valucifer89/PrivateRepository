@@ -11,13 +11,12 @@
         $_POST = json_decode(file_get_contents('php://input'), true);
     }
 
-    $username = $_POST["user"];
-    $password = $_POST["password"];
+    $token = $_POST["token"];
 
     $ff = new common();
 
-    $tmpStr = $ff->selectLogin(__UTENTI__, $username, $password);
-
+    $tmpStr = $ff->checkToken($token);
+    
     echo json_encode($tmpStr,JSON_PRETTY_PRINT);
 
 ?>
