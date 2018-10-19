@@ -40,28 +40,27 @@
                                 Welcome
                             </h3>
                             
-                            
                             <form class="register-form" name="formLogin" novalidate>
-                                <div id = "user">
+                                <div id = "user" ng-disabled="disabled">
                                     <label>Username</label>
-                                    <input type="input" class="form-control" placeholder="Username" id = "form_user" ng-model = "user">
+                                    <input type="input" class="form-control" placeholder="Username" id = "form_user" ng-model = "user" ng-disabled="disabled">
                                 </div>
                                 
-                                <div id = "password">
+                                <div id = "password" ng-disabled="disabled">
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" id = "form_password" ng-model = "pass">
+                                    <input type="password" class="form-control" placeholder="Password" id = "form_password" ng-model = "pass" ng-disabled="disabled">
                                 </div>
                                 
-                                <div class="has-danger" style = "color: red;" ng-hide="control">Username e/o password errate</div>
+                                <div class="has-danger" style = "color: red;" ng-show="errorLoginInsert">{{errorLoginInsert}}</div>
                                 
-                                <button class="btn btn-outline-success btn-round" ng-click="login()">Login</button>
-                                <button class="btn btn-outline-default btn-round" ng-click="reset()">Reset</button>
+                                <button class="btn btn-outline-success btn-round" ng-click="login()" ng-disabled="disabled">Login</button>
+                                <button class="btn btn-outline-default btn-round" ng-click="reset()" ng-disabled="disabled">Reset</button>
+                                <img ng-if = 'loading' src='data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==' />
                                 
                             </form>
                             
                             
-                            <div class="forgot">
-                                <a href="../register.html" class="btn btn-link btn-danger">Register?</a>
+                            <div class="forgot" ng-disabled="disabled">
                                 <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
                             </div>
                         </div>
@@ -86,9 +85,11 @@
     <!--  Paper Kit Initialization snd functons -->
     <script src="../assets/js/paper-kit.js?v=2.0.1"></script>
     
+    <!-- Script -->
+    <script src="../Script/notCopy.js"></script>
+    
     <!--  Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="../AngularJS/ngApps.js"></script>
     <script src="../AngularJS/ngLogin.js"></script>
     
 </body>

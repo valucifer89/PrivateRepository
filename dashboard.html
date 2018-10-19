@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app = "myDashboard">
 
 <head>
     <meta charset="utf-8" />
@@ -26,7 +26,7 @@
 
 </head>
 
-<body>
+<body control-token>
     
     <nav class="navbar navbar-expand-md fixed-top navbar-transparent" color-on-scroll="500">
         <div class="container">
@@ -78,7 +78,7 @@
     
     <div class="wrapper">
         
-        <section id = "home">
+        <section id = "home" >
             <div class="page-header section-dark" style="background-image: url('assets/img/antoine-barres.jpg')">
                 <div class="filter"></div>
         		<div class="content-center">
@@ -1138,6 +1138,13 @@
     
     <!--  Paper Kit Initialization and functons -->
     <script src="assets/js/paper-kit.js?v=2.1.0"></script>
+    
+    <!-- Script -->
+    <script src="../Script/notCopy.js"></script>
+    
+    <!--  Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="../AngularJS/ngDashboard.js"></script>
     
     
 </body>
