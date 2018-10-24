@@ -87,9 +87,16 @@ $(document).ready(function(){
     $("nav").find("a").click(function(e) {
         e.preventDefault();
         var section = $(this).attr("href");
-        $("html, body").animate({
-            scrollTop: $(section).offset().top
-        }, 1000);
+        var goPage = $(this).attr("class");
+        
+        if(!goPage.includes("goPage")){
+            $("html, body").animate({
+                scrollTop: $(section).offset().top
+            }, 1000);
+        }else{
+            window.location.href = section;
+        }
+        
     });
     
     $(".nav-item").click(function(e) {

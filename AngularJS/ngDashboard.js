@@ -5,7 +5,8 @@ dashboard.factory('LoginService', function($http) {
     
     return {
         isAuthenticated : function() {
-            if(sessionStorage.token == null)
+            
+            if(sessionStorage.token == "" || sessionStorage.token == null)
                 return true;
                 
             var url = "https://vdemastro2.000webhostapp.com/PHP/check.php";
@@ -19,11 +20,13 @@ dashboard.factory('LoginService', function($http) {
                     var jso = angular.fromJson(JSON.stringify(response));
                      
                     var uno = sessionStorage.user+sessionStorage.pass;
-                     
+    
                     if(uno === jso.data.result)
-                        return false;
+                        isAuthenticated = false;
                     else
-                        return true;
+                        isAuthenticated = true;
+                    
+                    return isAuthenticated;
                     
             },  function (error) {
                 return true;
@@ -34,12 +37,30 @@ dashboard.factory('LoginService', function($http) {
 });
 
 dashboard.run(function(LoginService, $window) {
-    if(LoginService.isAuthenticated()) {
+    var bool = LoginService.isAuthenticated();
+    if(bool) {
         $window.location.href= "https://vdemastro2.000webhostapp.com/login.html";
     }
 });
 
-dashboard.controller('dashboard', ['$scope',  function ($scope, LoginService){
+dashboard.controller('navbar', ['$scope',  function ($scope, LoginService){
+    
+    function checkPermission(){
+        
+        switch (sessionStorage.id_permission) {
+            case '6':
+                $scope.registra = "Registra";
+                $scope.menu = "Menu";
+                break;
+            case '5':
+                $scope.menu = "Menu";
+                break;
+            default:
 
+        }
+    }
+    
+    checkPermission();
+    
     
 }]);

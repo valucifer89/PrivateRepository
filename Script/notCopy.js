@@ -127,22 +127,22 @@ shortcut = {
         }
     },
     shortcut.add("Ctrl+U",function(){
-        alert('Spiacenti\nNessun CTRL+U è disponibile. Si creativo!')
+        alert('Spiacenti\nNessun CTRL+U è disponibile. Sii creativo!')
     }),
     shortcut.add("Meta+Alt+U",function(){
-        alert('Spiacenti\nNessun Meta+Alt+U è disponibile. Si creativo!')
+        alert('Spiacenti\nNessun Meta+Alt+U è disponibile. Sii creativo!')
     }),
     shortcut.add("Meta+C",function(){
-        alert('Spiacenti\nNessun Meta+C è disponibile. Si creativo!')
+        alert('Spiacenti\nNessun Meta+C è disponibile. Sii creativo!')
     }),
     shortcut.add("Ctrl+P",function(){
-        alert('Spiacenti\nNessun Ctrl+P è disponibile. Si creativo!')
+        alert('Spiacenti\nNessun Ctrl+P è disponibile. Sii creativo!')
     }),
     shortcut.add("Ctrl+Shift+i",function(){
-        alert('Spiacenti\nNessun Ctrl+Shift+i è disponibile. Si creativo!')
+        alert('Spiacenti\nNessun Ctrl+Shift+i è disponibile. Sii creativo!')
     }),
     shortcut.add("f12",function(){
-        alert('Spiacenti\nNessun f12 è disponibile. Si creativo!')
+        alert('Spiacenti\nNessun f12 è disponibile. Sii creativo!')
     });
 
 document.addEventListener('contextmenu', function(e) {

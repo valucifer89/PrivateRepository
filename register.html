@@ -1,6 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="myRegister">
 <head>
+    <base href="https://vdemastro2.000webhostapp.com/">
+    
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="../assets/img/favicon.ico">
 	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
@@ -33,7 +35,7 @@
 					<span class="navbar-toggler-bar"></span>
 					<span class="navbar-toggler-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="#">Paper Kit 2</a>
+	            <a class="navbar-brand" href="/dashboard.html">Paper Kit 2</a>
 			</div>
 			
 		</div>
@@ -45,28 +47,47 @@
             <div class="filter">
                 
             </div>
-            <div class="container" ng-app = "myRegister">
-                <div class="row" ng-controller = "register">
+            <div class="container" ng-controller = "register">
+                <div class="row">
                     
-                    <div class="col-lg-4 ml-auto mr-auto">
-                        <div class="card card-register" ng-init="init()">
+                    <div class="col-lg-8 ml-auto mr-auto">
+                        <div class="card card-register">
                             <h3 class="title">
                                 Welcome
                             </h3>
                             <form class="register-form" novalidate>
-                                <label>Email</label>
-                                <input type="text" class="form-control" placeholder="Email" ng-model = "email">
-
-                                <label>Password</label>
-                                <input type="password" class="form-control" placeholder="Password" ng-model = "password">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>Username</label>
+                                        <input type="text" class="form-control" placeholder="Username" ng-model = "username">
+                                    </div> 
+                                    <div class="col-sm-6">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control" placeholder="Password" ng-model = "password">
+                                    </div>
+                                </div> 
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>Username</label>
+                                        <input type="text" class="form-control" placeholder="Username" ng-model = "username">
+                                    </div> 
+                                    <div class="col-sm-6">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control" placeholder="Password" ng-model = "password">
+                                    </div>
+                                </div> 
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>Username</label>
+                                        <input type="text" class="form-control" placeholder="Username" ng-model = "username">
+                                    </div> 
+                                </div> 
                                 
                                 <button class="btn btn-danger btn-round" ng-click="registra()">Register</button>
                                 <button class="btn btn-default btn-round" ng-click="reset()">Reset</button>
                                 
                             </form>
-                            <div class="forgot">
-                                <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
-                            </div>
+                            
                         </div>
                     </div>
                     
@@ -90,9 +111,11 @@
     <!--  Paper Kit Initialization snd functons -->
     <script src="../assets/js/paper-kit.js?v=2.0.1"></script>
     
+    <!-- Script -->
+    <script src="../Script/notCopy.js"></script>
+    
     <!--  Angular -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="../AngularJS/ngApps.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
     <script src="../AngularJS/ngRegister.js"></script>
     
 </body>
