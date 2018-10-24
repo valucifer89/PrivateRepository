@@ -25,7 +25,7 @@
     $inp = $p.$q;
     
     echo "Encode: ".getToken($inp)."<br>";
-    echo "Decode: ".getqwen(getToken($inp))."<br>";
+    echo "Decode: ".decryptIt('CuMA5BmAxzcQLs8kX5+jDkhBdgVrEbofmLx35CCJUc0=')."<br>";
     
 
 

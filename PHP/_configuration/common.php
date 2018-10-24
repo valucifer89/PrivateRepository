@@ -100,6 +100,35 @@
             
         }
         
+        public function insertRegister($table, $values, $user, $pass){
+            
+            $this->connection();
+            
+            $passcrypt = self::encryptIt($user.$pass);
+            
+            $str = $this->createInsert($table);
+            
+            array_push($values, "'$passcrypt'");
+            
+            $str = $str." (nominativo, user, email, id_permission, pass) values (".$this->createValues($values).")";
+            
+            echo "<br>$str<br>";
+            
+            $stmt = $this->connection->stmt_init();
+            $stmt = $this->connection->prepare($str);
+            
+            if ($stmt->execute() ){
+                $arr = array('Result'=> true);
+            }else{
+                $arr = array('Result'=> false);
+            }
+   
+            $this->closeConnection();
+            
+            return json_encode($arr);
+            
+        }
+        
         public function insert($table, $values){
             
             $this->connection();

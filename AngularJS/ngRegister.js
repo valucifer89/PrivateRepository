@@ -1,6 +1,6 @@
-var register = angular.module('myRegister', []);
+var registra = angular.module('myRegister', []);
 
-register.factory('LoginService', function($http) {
+registra.factory('LoginService', function($http) {
     var isAuthenticated = false;
     
     return {
@@ -20,7 +20,7 @@ register.factory('LoginService', function($http) {
                     var jso = angular.fromJson(JSON.stringify(response));
                      
                     var uno = sessionStorage.user+sessionStorage.pass;
-                    
+    
                     if(uno === jso.data.result)
                         isAuthenticated = false;
                     else
@@ -36,14 +36,43 @@ register.factory('LoginService', function($http) {
     };
 });
 
-register.run(function(LoginService, $window) {
-    if(LoginService.isAuthenticated()) {
+registra.run(function(LoginService, $window) {
+    var bool = LoginService.isAuthenticated();
+    if(bool) {
         $window.location.href= "https://vdemastro2.000webhostapp.com/login.html";
     }
 });
 
-register.controller('register', function ($scope){
+registra.controller('register', ['$scope', '$http', function ($scope, $http, LoginService){
+    $scope.title_email = "deve essere @vale.com";
+    $scope.pattern_email = ".+@vale.com";
+    
+    function getPermission(){
+        $http({
+                method  : 'GET', url     : "https://vdemastro2.000webhostapp.com/PHP/permission.php",
+                headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
+             }).then(
+                function(response) {
+                    var jso = angular.fromJson(JSON.stringify(response));
+                    
+                    $scope.data = {
+                        model: null,
+                        availableOptions: jso.data.result
+                    };
+                    
+            },  function (error) {
+                        console.log(JSON.stringify(error));
+            });
+    }
+    
+    getPermission();
+    
+    $scope.reset = function(){
+        alert("ola");
+    }
+    $scope.registra = function(){
+        alert("asdasd");
+    }
     
     
- 
-});
+}]);

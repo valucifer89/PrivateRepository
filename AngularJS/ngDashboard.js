@@ -44,7 +44,6 @@ dashboard.run(function(LoginService, $window) {
 });
 
 dashboard.controller('navbar', ['$scope',  function ($scope, LoginService){
-    
     function checkPermission(){
         
         switch (sessionStorage.id_permission) {
