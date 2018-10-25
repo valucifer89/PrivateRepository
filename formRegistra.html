@@ -1,0 +1,87 @@
+<div class="row">
+                    
+    <div class="col-lg-8 ml-auto mr-auto">
+        <div class="card card-register">
+            <h3 class="title">
+                Welcome
+            </h3>
+            <form class="register-form" name = "user">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>Username</label>
+                        <input 
+                            type = "text" 
+                            id = "username"
+                            class = "form-control" 
+                            placeholder = "Username" 
+                            ng-model = "username"
+                            required />
+                    </div> 
+                    <div class="col-sm-6">
+                        <label>Password</label>
+                        <input 
+                            type = "password" 
+                            id = 'password'
+                            class = "form-control" 
+                            placeholder = "Password" 
+                            ng-model = "password"
+                            required>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>Nominativo</label>
+                        <input 
+                            type = "text" 
+                            id = 'nominativo'
+                            class = "form-control" 
+                            placeholder = "Nominativo" 
+                            ng-model = "nominativo"
+                            required>
+                    </div> 
+                    <div class="col-sm-6">
+                        <label 
+                            ng-class = "{'error-email-label': (user.email.$invalid && user.email.$dirty)}"
+                        >Email</label>
+                        <input 
+                            type = "email" 
+                            name = "email" 
+                            class="form-control" 
+                            ng-pattern="pattern_email" 
+                            placeholder = "Email" 
+                            ng-model = "email" 
+                            ng-class = "{'error-email': (user.email.$invalid && user.email.$dirty)}"
+                            title="{{title_email}}"
+                            required />
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>Permessi</label>
+                        <select 
+                            class="form-control" 
+                            name="permission" 
+                            id="permission" 
+                            ng-model="permission"
+                            required
+                        >
+                            <option value = "">--- SELECT ---</option>
+                            <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.descrizione}}</option>
+                        </select>
+                    </div> 
+                </div> 
+                
+                <button class="btn btn-danger btn-round" ng-click="registra()" ng-disabled = "user.$invalid">Register</button>
+                <button class="btn btn-default btn-round" type = "reset">Reset</button>
+                
+            </form>
+            
+        </div>
+    </div>
+    
+</div>
+<div class="footer register-footer text-center">
+    <div ng-controller = "footer">
+	    <h6 >&copy; {{year}} , made with <i class="fa fa-heart heart"></i> by {{by}}</h6>
+    </div>
+</div>

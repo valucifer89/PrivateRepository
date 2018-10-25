@@ -43,6 +43,11 @@ registra.run(function(LoginService, $window) {
     }
 });
 
+registra.controller("header",  ['$scope', function ($scope){
+    $scope.title_page_head = "Titolo Pagina";
+    $scope.base = "https://vdemastro2.000webhostapp.com/";
+}]);
+
 registra.controller('register', ['$scope', '$http', function ($scope, $http, LoginService){
     $scope.title_email = "deve essere @vale.com";
     $scope.pattern_email = ".+@vale.com";
@@ -65,14 +70,24 @@ registra.controller('register', ['$scope', '$http', function ($scope, $http, Log
             });
     }
     
+    function insertFields(){
+        alert("WWW");
+    }
+    
     getPermission();
     
-    $scope.reset = function(){
-        alert("ola");
-    }
     $scope.registra = function(){
-        alert("asdasd");
+        insertFields();
     }
     
     
+}]);
+
+registra.controller('footer', ['$scope',  function ($scope){
+    $scope.year = (new Date()).getFullYear();
+    $scope.by = "Creative TIM";
+}]);
+
+registra.controller('navbar', ['$scope',  function ($scope){
+    $scope.home = "HOME";
 }]);
