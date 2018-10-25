@@ -112,20 +112,18 @@
             
             $str = $str." (nominativo, user, email, id_permission, pass) values (".$this->createValues($values).")";
             
-            echo "<br>$str<br>";
-            
             $stmt = $this->connection->stmt_init();
             $stmt = $this->connection->prepare($str);
             
             if ($stmt->execute() ){
-                $arr = array('Result'=> true);
+                $arr = array('result'=> true);
             }else{
-                $arr = array('Result'=> false);
+                $arr = array('result'=> false);
             }
    
             $this->closeConnection();
             
-            return json_encode($arr);
+            return $arr;
             
         }
         
@@ -148,7 +146,7 @@
    
             $this->closeConnection();
             
-            return json_encode($arr);
+            return $arr;
             
         }
         
@@ -174,7 +172,7 @@
    
             $this->closeConnection();
             
-            return json_encode($arr);
+            return $arr;
         }
         
         public function delete($table, $where = " "){
@@ -198,7 +196,7 @@
    
             $this->closeConnection();
             
-            return json_encode($arr);
+            return $arr;
             
         }
         

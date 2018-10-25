@@ -2,6 +2,8 @@
                     
     <div class="col-lg-8 ml-auto mr-auto">
         <div class="card card-register">
+            <div ng-include = "'/notification.html'" ng-show = "notify"></div>
+            
             <h3 class="title">
                 Welcome
             </h3>
@@ -15,6 +17,7 @@
                             class = "form-control" 
                             placeholder = "Username" 
                             ng-model = "username"
+                            ng-change = "controlDisabledRegistra()"
                             required />
                     </div> 
                     <div class="col-sm-6">
@@ -25,6 +28,7 @@
                             class = "form-control" 
                             placeholder = "Password" 
                             ng-model = "password"
+                            ng-change = "controlDisabledRegistra()"
                             required>
                     </div>
                 </div> 
@@ -37,6 +41,7 @@
                             class = "form-control" 
                             placeholder = "Nominativo" 
                             ng-model = "nominativo"
+                            ng-change = "controlDisabledRegistra()"
                             required>
                     </div> 
                     <div class="col-sm-6">
@@ -46,10 +51,12 @@
                         <input 
                             type = "email" 
                             name = "email" 
+                            id = "email"
                             class="form-control" 
                             ng-pattern="pattern_email" 
                             placeholder = "Email" 
                             ng-model = "email" 
+                            ng-change = "controlDisabledRegistra()"
                             ng-class = "{'error-email': (user.email.$invalid && user.email.$dirty)}"
                             title="{{title_email}}"
                             required />
@@ -61,6 +68,7 @@
                         <select 
                             class="form-control" 
                             name="permission" 
+                            ng-change = "controlDisabledRegistra()"
                             id="permission" 
                             ng-model="permission"
                             required
@@ -71,8 +79,8 @@
                     </div> 
                 </div> 
                 
-                <button class="btn btn-danger btn-round" ng-click="registra()" ng-disabled = "user.$invalid">Register</button>
-                <button class="btn btn-default btn-round" type = "reset">Reset</button>
+                <button class="btn btn-danger btn-round" ng-click="registra()" ng-disabled = "user.$invalid || disab ">Register</button>
+                <button class="btn btn-default btn-round" ng-click = "reset()">Reset</button>
                 
             </form>
             

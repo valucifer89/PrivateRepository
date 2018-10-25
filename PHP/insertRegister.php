@@ -11,11 +11,11 @@
         $_POST = json_decode(file_get_contents('php://input'), true);
     }
 
-    $username = $_GET["user"];
-    $password = $_GET["password"];
-    $nominativo = $_GET["nominativo"];
-    $email = $_GET["email"];
-    $id_permission = $_GET["id_permission"];
+    $username = $_POST["user"];
+    $password = $_POST["password"];
+    $nominativo = $_POST["nominativo"];
+    $email = $_POST["email"];
+    $id_permission = $_POST["id_permission"];
     
     $values = array();
     array_push($values,"'$nominativo'");
