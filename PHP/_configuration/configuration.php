@@ -11,6 +11,7 @@
     //Permission
     define("__PERMISSION__", "permission");
     
-    //Permission
+    //Progetti
     define("__PROGETTI__", "progetti");
+    define("__DESCR_PROGETTI__", "descrizione_progetto");
 ?>

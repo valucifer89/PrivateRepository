@@ -61,6 +61,39 @@
             return $outp;
             
         }
+        
+        public function selectProject($tableProg, $tableDescr){
+            $this->connection();
+            
+            $str = $this->createSelectProject($tableProg, $tableDescr);
+            
+            $stmt = $this->connection->prepare($str);
+            $stmt->execute();
+            
+            $stmt->store_result();
+            
+            if ($stmt->num_rows > 0){
+                
+                $result = $this->connection->query($str);
+                
+                $tmp = array();
+                
+                while($row = $result->fetch_array(MYSQLI_ASSOC)){
+                     array_push($tmp,$row);
+                }
+                
+                $outp = ["result" => $tmp];
+                
+            }else{
+                $outp = ["result" => "0"];
+            }
+            
+            $this->closeConnection();
+            
+            return $outp;
+            
+        }
+        
        
         public function select($table, $where = " "){
             $this->connection();
@@ -91,7 +124,7 @@
                 $outp = ["result" => $tmp];
                 
             }else{
-                 $outp = ["result" => "0"];
+                $outp = ["result" => "0"];
             }
             
             $this->closeConnection();
@@ -216,6 +249,10 @@
         
         private function createSelect($table){
             return "select * from $table ";
+        }
+        
+        private function createSelectProject($tableProj, $tableDescr){
+            return "select * from $tableProj as a, $tableDescr as b where a.id = b.id_progetto";
         }
         
         private function createWhere($where = " "){

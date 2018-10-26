@@ -12,6 +12,6 @@
     }
 
     $ff = new common();
-    echo json_encode($ff->select(__PROGETTI__), JSON_PRETTY_PRINT);
+    echo json_encode($ff->selectProject(__PROGETTI__, __DESCR_PROGETTI__), JSON_PRETTY_PRINT);
 
 ?>

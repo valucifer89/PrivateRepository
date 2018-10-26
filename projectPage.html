@@ -6,12 +6,42 @@
                 <h2>Sezione dei Progetti</h2>
             </div> 
             <br/>
-
-<option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.descrizione}}</option>
-            <div class="row">
-
-            </div>
             
+            <div  ng-repeat="option in data.availableOptions">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="tim-title">
+                            <blockquote class = "blockquote">
+                                <h3>{{option.nome_progetto}}</h3>
+                            </blockquote>
+                        </div>
+
+                        <div class="nav-tabs-navigation">
+                            <div class="nav-tabs-wrapper">
+                                <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#descr_{{option.id}}" role="tab" ng-show = "option.descrip">Descrizione</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#stato_{{option.id}}" role="tab">Stato Progetto</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="my-tab-content" class="tab-content text-center">
+                            <div class="tab-pane active" id="descr_{{option.id}}" role="tabpanel">
+                                <p>
+                                    {{option.descrip}}
+                                </p>
+                                <a href="/goOnPageProject.html?id_prog = {{option.id}}" class="btn btn-link btn-warning">Visualizza Progetto</a>
+                            </div>
+                            <div class="tab-pane" id="stato_{{option.id}}" role="tabpanel"><p>Here is your profile.</p></div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <br/>
+            </div>
         </div>
     </div>
 </div>

@@ -163,7 +163,7 @@ var dashboard = angular.module('myDashboard', []);
     
     
     //SECTION PROJECT
-    dashboard.controller('project', ['$scope', '$http', function ($scope, $http){
+    dashboard.controller('project', ['$scope', '$http', '$interval', function ($scope, $http, $interval){
         function getAllProject(){
             $http({
                 method  : 'GET', url     : "https://vdemastro2.000webhostapp.com/PHP/getProject.php",
@@ -185,4 +185,15 @@ var dashboard = angular.module('myDashboard', []);
         }
         
         getAllProject();
+        
+        $scope.interval = $interval(function(){
+            getAllProject();
+        },120000);
+    }]);
+    
+    
+    //FOOTER
+    dashboard.controller('footer', ['$scope',  function ($scope){
+        $scope.year = (new Date()).getFullYear();
+        $scope.by = "Creative TIM pepp";
     }]);
