@@ -1,11 +1,10 @@
 <div class="row">
-                    
     <div class="col-lg-8 ml-auto mr-auto">
         <div class="card card-register">
             <div ng-include = "'/notification.html'" ng-show = "notify"></div>
             
             <h3 class="title">
-                Welcome
+                Registrazione Utente
             </h3>
             <form class="register-form" name = "user">
                 <div class="row">
@@ -79,8 +78,8 @@
                     </div> 
                 </div> 
                 
-                <button class="btn btn-danger btn-round" ng-click="registra()" ng-disabled = "user.$invalid || disab ">Register</button>
-                <button class="btn btn-default btn-round" ng-click = "reset()">Reset</button>
+                <button class="btn btn-outline-success btn-round" ng-click="registra()" ng-disabled = "user.$invalid || disab ">Register</button>
+                <button class="btn btn-outline-default btn-round" ng-click = "reset()">Reset</button>
                 
             </form>
             

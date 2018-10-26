@@ -7,7 +7,11 @@
     header("Content-Type: application/json");
     header("Cache-Control: no-cache");
 
+    if (empty($_POST) && file_get_contents('php://input')!==""){
+        $_POST = json_decode(file_get_contents('php://input'), true);
+    }
+
     $ff = new common();
-    echo json_encode($ff->select(__PERMISSION__), JSON_PRETTY_PRINT);
+    echo json_encode($ff->select(__PROGETTI__), JSON_PRETTY_PRINT);
 
 ?>

@@ -11,12 +11,7 @@
         $_POST = json_decode(file_get_contents('php://input'), true);
     }
 
-    $token = $_POST["token"];
-
     $ff = new common();
-
-    $tmpStr = $ff->checkToken($token);
-    
-    echo json_encode($tmpStr,JSON_PRETTY_PRINT);
+    echo json_encode($ff->checkToken($_POST["token"]), JSON_PRETTY_PRINT);
 
 ?>

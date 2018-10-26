@@ -6,7 +6,11 @@
     //definizione delle tabelle
     //Utenti
     define("__UTENTI__", "utenti");
-    define("__PERMISSION__", "permission");
     define("__COLONNE_UTENTI__", "nominativo,username,password,email");
-
+    
+    //Permission
+    define("__PERMISSION__", "permission");
+    
+    //Permission
+    define("__PROGETTI__", "progetti");
 ?>

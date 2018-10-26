@@ -90,9 +90,11 @@ $(document).ready(function(){
         var goPage = $(this).attr("class");
         
         if(!goPage.includes("goPage")){
-            $("html, body").animate({
-                scrollTop: $(section).offset().top
-            }, 1000);
+            if(!goPage.includes("dropdown-toggle")){
+                $("html, body").animate({
+                    scrollTop: $(section).offset().top
+                }, 1000);
+            }
         }else{
             window.location.href = section;
         }

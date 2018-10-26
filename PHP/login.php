@@ -11,13 +11,7 @@
         $_POST = json_decode(file_get_contents('php://input'), true);
     }
 
-    $username = $_POST["user"];
-    $password = $_POST["password"];
-
     $ff = new common();
-
-    $tmpStr = $ff->selectLogin(__UTENTI__, $username, $password);
-
-    echo json_encode($tmpStr,JSON_PRETTY_PRINT);
+    echo json_encode($ff->selectLogin(__UTENTI__, $_POST["user"], $_POST["password"]), JSON_PRETTY_PRINT);
 
 ?>

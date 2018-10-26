@@ -617,8 +617,8 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 }
 
 .btn-outline-default {
-  border-color: #66615B;
-  color: #66615B;
+  border-color: #fff;
+  color: #fff;
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -661,8 +661,8 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 }
 
 .btn-outline-success {
-  border-color: #6bd098;
-  color: #6bd098;
+  border-color: #fbbb21;
+  color: #fbbb21;
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -679,7 +679,8 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 }
 .btn-outline-success.disabled, .btn-outline-success.disabled:hover, .btn-outline-success.disabled:focus, .btn-outline-success.disabled.focus, .btn-outline-success.disabled:active, .btn-outline-success.disabled.active, .btn-outline-success:disabled, .btn-outline-success:disabled:hover, .btn-outline-success:disabled:focus, .btn-outline-success:disabled.focus, .btn-outline-success:disabled:active, .btn-outline-success:disabled.active, .btn-outline-success[disabled], .btn-outline-success[disabled]:hover, .btn-outline-success[disabled]:focus, .btn-outline-success[disabled].focus, .btn-outline-success[disabled]:active, .btn-outline-success[disabled].active, fieldset[disabled] .btn-outline-success, fieldset[disabled] .btn-outline-success:hover, fieldset[disabled] .btn-outline-success:focus, fieldset[disabled] .btn-outline-success.focus, fieldset[disabled] .btn-outline-success:active, fieldset[disabled] .btn-outline-success.active {
   background-color: transparent;
-  border-color: #6bd098;
+  border-color: #756337;
+  color: #756337 !important;
 }
 
 .btn-outline-info {
@@ -2577,7 +2578,7 @@ textarea.form-control {
 }
 
 .card-register {
-  background-color: #FF8F5E;
+  background-color: #004254;
   border-radius: 8px;
   color: #fff;
   max-width: 100%;
@@ -2591,7 +2592,7 @@ textarea.form-control {
 }
 
 .card-login {
-  background-color: #35393e;
+  background-color: #004254;
   border-radius: 8px;
   color: #fff;
   max-width: 350px;
@@ -2626,7 +2627,7 @@ textarea.form-control {
 }
 
 .card-register .title {
-  color: #B33C12;
+  color: #ffffff;
   text-align: center;
 }
 .card-login .title {

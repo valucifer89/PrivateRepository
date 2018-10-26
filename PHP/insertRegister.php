@@ -11,22 +11,13 @@
         $_POST = json_decode(file_get_contents('php://input'), true);
     }
 
-    $username = $_POST["user"];
-    $password = $_POST["password"];
-    $nominativo = $_POST["nominativo"];
-    $email = $_POST["email"];
-    $id_permission = $_POST["id_permission"];
-    
     $values = array();
-    array_push($values,"'$nominativo'");
-    array_push($values,"'$username'");
-    array_push($values,"'$email'");
-    array_push($values,$id_permission);
+    array_push($values,"'".$_POST['nominativo']."'");
+    array_push($values,"'".$_POST['user']."'");
+    array_push($values,"'".$_POST['email']."'");
+    array_push($values,"'".$_POST['id_permission']."'");
     
     $ff = new common();
-
-    $tmpStr = $ff->insertRegister(__UTENTI__, $values, $username, $password);
-
-    echo json_encode($tmpStr,JSON_PRETTY_PRINT);
+    echo json_encode($ff->insertRegister(__UTENTI__, $values, $_POST["user"], $_POST["password"]), JSON_PRETTY_PRINT);
 
 ?>
