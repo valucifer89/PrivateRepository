@@ -14,4 +14,7 @@
     //Progetti
     define("__PROGETTI__", "progetti");
     define("__DESCR_PROGETTI__", "descrizione_progetto");
+    
+    //Path root directory
+    define("__BASE_DIR__", dirname(__DIR__)."/Progetti")
 ?>

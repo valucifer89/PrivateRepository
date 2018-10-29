@@ -4,6 +4,8 @@
             <br/>
             <div class="tim-title">
                 <h2>Sezione dei Progetti</h2>
+                <br/>
+                <a href="/createProject.html" class="btn btn-link btn-warning" ng-show="crea_progetto">+ Progetto</a>
             </div> 
             <br/>
             
@@ -31,11 +33,60 @@
                         <div id="my-tab-content" class="tab-content text-center">
                             <div class="tab-pane active" id="descr_{{option.id}}" role="tabpanel">
                                 <p>
-                                    {{option.descrip}}
-                                </p>
+                                    {{option.descrip}}                                </p>
                                 <a href="/goOnPageProject.html?id_prog = {{option.id}}" class="btn btn-link btn-warning">Visualizza Progetto</a>
                             </div>
-                            <div class="tab-pane" id="stato_{{option.id}}" role="tabpanel"><p>Here is your profile.</p></div>
+                            <div class="tab-pane" id="stato_{{option.id}}" role="tabpanel">
+                                <div class = "container">
+                                    <div class="row" id="modals">
+                						<div class="col-md-6">
+                							<div class="tim-title">
+                								<h3 align = "left">Data Inizio Progetto</h3>
+                							</div>
+                						    <div class="row">
+                						        <div class="col-sm-6">
+                						            <div class="form-group"  >
+                						                <div class="input-group date" id="datetimepicker">
+                						                    <input type="text" class="form-control datetimepicker" disabled = "true" value = "{{option.data_inizio | date: 'dd/MM/yyyy'}}">
+                						                </div>
+                						            </div>
+                						        </div>
+                						    </div>
+                						</div>
+                						<div class="col-md-6">
+                							<div class="tim-title">
+                								<h3 align = "left">Data Fine Progetto</h3>
+                							</div>
+                						    <div class="row">
+                						        <div class="col-sm-6">
+                						            <div class="form-group">
+                						                <div class="input-group date" id="datetimepicker">
+                						                    <input type="text" class="form-control datetimepicker" disabled = "true" value = "{{option.data_fine | date: 'dd/MM/yyyy'}}">
+                						                </div>
+                						            </div>
+                						        </div>
+                						    </div>
+                						</div>
+                					</div>
+                                </div> 
+                                <div class = "container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="tim-title">
+                                                <h3>
+                                                    Stato Avanzamento Progetto
+                                                </h3>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-{{option.color}}" role="progressbar" style="width:   {{option.percentage}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="6"></div>
+                                            </div><br>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
                         </div>
                     </div>
                     

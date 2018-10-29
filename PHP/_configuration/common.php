@@ -79,6 +79,33 @@
                 $tmp = array();
                 
                 while($row = $result->fetch_array(MYSQLI_ASSOC)){
+                    switch($row['stato_progetto']){
+                        case '1':
+                            $row["percentage"] = 16.67;
+                            $row["color"] = "danger";
+                            break;
+                        case '2':
+                            $row["percentage"] = 33.34;
+                            $row["color"] = "danger";
+                            break;
+                        case '3':
+                            $row["percentage"] = 50.00;
+                            $row["color"] = "warning";
+                            break;
+                        case '4':
+                            $row["percentage"] = 66.69;
+                            $row["color"] = "warning";
+                            break;
+                        case '5':
+                            $row["percentage"] = 83.35;
+                            $row["color"] = "success";
+                            break;
+                        case '6':
+                            $row["percentage"] = 100.00;
+                            $row["color"] = "success";
+                            break;
+                    }
+                    
                      array_push($tmp,$row);
                 }
                 
@@ -252,7 +279,7 @@
         }
         
         private function createSelectProject($tableProj, $tableDescr){
-            return "select * from $tableProj as a, $tableDescr as b where a.id = b.id_progetto";
+            return "select * from $tableProj as a, $tableDescr as b where a.id = b.id_progetto order by a.stato_progetto ASC, a.data_inizio DESC";
         }
         
         private function createWhere($where = " "){

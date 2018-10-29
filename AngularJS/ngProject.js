@@ -1,8 +1,8 @@
-var dashboard = angular.module('myDashboard', []);
+var project = angular.module('myProject', []);
 
 
     //HEADER
-    dashboard.controller("header",  ['$scope', function ($scope){
+    project.controller("header",  ['$scope', function ($scope){
         //header da definire
         $scope.title_page_head = "Titolo Pagina";
         $scope.base = "https://vdemastro2.000webhostapp.com/";
@@ -10,7 +10,7 @@ var dashboard = angular.module('myDashboard', []);
 
     
     //NAVBAR
-    dashboard.controller('navbar', ['$scope', '$window', '$location',  function ($scope, $window, $location, LoginService){
+    project.controller('navbar', ['$scope', '$window', '$location',  function ($scope, $window, $location, LoginService){
         
         function setNav(){
             $scope.home = "";
@@ -45,62 +45,22 @@ var dashboard = angular.module('myDashboard', []);
         
         function checkPermission(){
             $scope.home = "HOME";
-            $scope.href_home = "#home";
+            $scope.href_home = "/dashboard.html";
             
             switch (sessionStorage.id_permission) {
                 case '1':
-                    $scope.registra = "Registra";
-                    $scope.href_registra = "/register.html";
-                    
-                    $scope.progetti = "Progetti";
-                    $scope.href_progetti = "#progetti";
-                    
-                    $scope.documenti = "Documenti";
-                    $scope.leggi_documenti = "Lettura dei documenti";
-                    $scope.href_leggi_documenti = "";
-                    $scope.inserisci_documenti = "Inserimento documenti";
-                    $scope.href_inserisci_documenti = "";
-                    
-                    $scope.leggi_defect = "Lettura dei defect";
-                    $scope.href_leggi_defect = "";
-                    $scope.inserisci_defect = "Inserimento defect";
-                    $scope.href_inserisci_defect = "";
-                    break;
-                
-                case '3':
-                    $scope.progetti = "Progetti";
-                    $scope.href_progetti = "#progetti";
-                    
-                    $scope.documenti = "Documenti";
-                    $scope.leggi_documenti = "Lettura dei documenti";
-                    $scope.href_leggi_documenti = "";
-                    
-                    $scope.leggi_defect = "Lettura dei defect";
-                    $scope.href_leggi_defect = "";
-                    
+                    $scope.progetti = "Crea Progetti";
+                    $scope.href_progetti = "#crea_progetti";
                     break;
                 
                 case '4':
-                    $scope.progetti = "Progetti";
-                    $scope.href_progetti = "#progetti";
-                    
-                    $scope.documenti = "Documenti";
-                    $scope.leggi_documenti = "Lettura dei documenti";
-                    $scope.href_leggi_documenti = "";
-                    $scope.inserisci_documenti = "Inserimento documenti";
-                    $scope.href_inserisci_documenti = "";
-                    
-                    $scope.leggi_defect = "Lettura dei defect";
-                    $scope.href_leggi_defect = "";
-                    $scope.inserisci_defect = "Inserimento defect";
-                    $scope.href_inserisci_defect = "";
+                    $scope.progetti = "Crea Progetti";
+                    $scope.href_progetti = "#crea_progetti";
                     break;
                 
                 default:
             }
             
-            $scope.menu = "Dashboard";
-            $scope.href_menu = "#home";
         }
         
         
@@ -111,7 +71,7 @@ var dashboard = angular.module('myDashboard', []);
     
     
     //Controllo dell'accesso
-    dashboard.factory('LoginService', function($http) {
+    project.factory('LoginService', function($http) {
         var isAuthenticated = false;
         
         return {
@@ -145,7 +105,7 @@ var dashboard = angular.module('myDashboard', []);
             }
         };
     });
-    dashboard.run(function(LoginService, $window) {
+    project.run(function(LoginService, $window) {
         var bool = LoginService.isAuthenticated();
         if(bool) {
             $window.location.href= "https://vdemastro2.000webhostapp.com/login.html";
@@ -154,7 +114,7 @@ var dashboard = angular.module('myDashboard', []);
     
     
     //SECTION HOME
-    dashboard.controller('home',['$scope', function ($scope){
+    project.controller('home',['$scope', function ($scope){
         //variable
         $scope.presentation_subtitle = "Subtitle";
         $scope.presentation_title = "Title";
@@ -163,7 +123,7 @@ var dashboard = angular.module('myDashboard', []);
     
     
     //SECTION PROJECT
-    dashboard.controller('project', ['$scope', '$http', '$interval', function ($scope, $http, $interval){
+    project.controller('project', ['$scope', '$http', '$interval', function ($scope, $http, $interval){
         function getAllProject(){
             $http({
                 method  : 'GET', url     : "https://vdemastro2.000webhostapp.com/PHP/getProject.php",
@@ -212,7 +172,7 @@ var dashboard = angular.module('myDashboard', []);
     
     
     //FOOTER
-    dashboard.controller('footer', ['$scope',  function ($scope){
+    project.controller('footer', ['$scope',  function ($scope){
         $scope.year = (new Date()).getFullYear();
         $scope.by = "Creative TIM pepp";
     }]);
