@@ -7,6 +7,25 @@ var registra = angular.module('myRegister', []);
         $scope.title_page_head = "Titolo Pagina";
         $scope.base = "https://vdemastro2.000webhostapp.com/";
     }]);
+    
+    registra.directive("compareTo", function() {
+        return {
+            require: "ngModel",
+            scope: {
+                confirmPassword: "=compareTo"
+            },
+            link: function(scope, element, attributes, modelVal) {
+    
+                modelVal.$validators.compareTo = function(val) {
+                    return val == scope.confirmPassword;
+                };
+    
+                scope.$watch("confirmPassword", function() {
+                    modelVal.$validate();
+                });
+            }
+        };
+    });
 
 
     //NAVBAR
@@ -49,6 +68,11 @@ var registra = angular.module('myRegister', []);
         
         //Esecuzione delle funzioni
         getPageForMenu();
+        
+        $scope.logout = function(){
+            sessionStorage.clear();
+            $window.location.href= "https://vdemastro2.000webhostapp.com/login.html";
+        }
         
     }]);
 
@@ -179,6 +203,7 @@ var registra = angular.module('myRegister', []);
         $scope.reset = function(){
             angular.element('#username').val('');
             angular.element('#password').val('');
+            angular.element('#confirmPassword').val('');
             angular.element('#nominativo').val('');
             angular.element('#email').val('');
             angular.element('#permission').val('');
@@ -188,6 +213,7 @@ var registra = angular.module('myRegister', []);
         $scope.controlDisabledRegistra = function(){
             var username = angular.element('#username').val();
             var password = angular.element('#password').val();
+            var confirmPassword = angular.element('#confirmPassword').val();
             var nominativo = angular.element('#nominativo').val();
             var email = angular.element('#email').val();
             var permission = angular.element('#permission').val();
@@ -207,7 +233,10 @@ var registra = angular.module('myRegister', []);
                             if (permission.length === 0){
                                 $scope.disab = true;
                             }else{
-                                $scope.disab = false;
+                                if(!(confirmPassword === password)){
+                                    $scope.disab = true;
+                                }else
+                                    $scope.disab = false;
                             } 
                         }
                     }

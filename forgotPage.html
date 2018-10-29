@@ -1,0 +1,30 @@
+<div class="row" ng-controller = "password"  >
+    <div class="col-lg-4 ml-auto mr-auto">
+        <div class="card card-login">
+            <h3 class="title">
+                Password Dimenticata
+            </h3>
+            
+            <form class="register-form" name="formLogin" novalidate>
+                <div id = "user" ng-disabled="disabled">
+                    <label>Username o Email</label>
+                    <input type="input" class="form-control" placeholder="Inserisci l'username o la email" id = "form_user" ng-model = "user_o_email">
+                </div>
+                
+                <button class="btn btn-outline-success btn-round" ng-click="invia()" ng-disabled="disabled">Invia</button>
+                <button class="btn btn-outline-default btn-round" ng-click="reset()" ng-disabled="disabled">Reset</button>
+                <img ng-if = 'loading' src='data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==' />
+                
+            </form>
+            
+            <div align="right">
+                <a href="" class="btn btn-link btn-warning" ng-click="torna()">Torna</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer register-footer text-center">
+    <div ng-controller = "footer">
+	    <h6 >&copy; {{year}} , made with <i class="fa fa-heart heart"></i> by {{by}}</h6>
+    </div>
+</div>

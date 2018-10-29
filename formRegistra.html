@@ -9,6 +9,17 @@
             <form class="register-form" name = "user">
                 <div class="row">
                     <div class="col-sm-6">
+                        <label>Nominativo</label>
+                        <input 
+                            type = "text" 
+                            id = 'nominativo'
+                            class = "form-control" 
+                            placeholder = "Nominativo" 
+                            ng-model = "nominativo"
+                            ng-change = "controlDisabledRegistra()"
+                            required>
+                    </div> 
+                    <div class="col-sm-6">
                         <label>Username</label>
                         <input 
                             type = "text" 
@@ -19,6 +30,8 @@
                             ng-change = "controlDisabledRegistra()"
                             required />
                     </div> 
+                </div> 
+                <div class="row">
                     <div class="col-sm-6">
                         <label>Password</label>
                         <input 
@@ -30,18 +43,35 @@
                             ng-change = "controlDisabledRegistra()"
                             required>
                     </div>
+                    <div class="col-sm-6">
+                        <label>Confirm Password</label>
+                        <input 
+                            type = "password" 
+                            id = 'confirmPassword'
+                            name = 'confirmPassword'
+                            class = "form-control" 
+                            placeholder = "Confirm Password" 
+                            ng-model = "confirmPassword"
+                            compare-to="password"
+                            ng-class = "{'error-email': (user.confirmPassword.$invalid && user.confirmPassword.$dirty)}"
+                            ng-change = "controlDisabledRegistra()"
+                            required>
+                    </div>
                 </div> 
                 <div class="row">
                     <div class="col-sm-6">
-                        <label>Nominativo</label>
-                        <input 
-                            type = "text" 
-                            id = 'nominativo'
-                            class = "form-control" 
-                            placeholder = "Nominativo" 
-                            ng-model = "nominativo"
+                        <label>Permessi</label>
+                        <select 
+                            class="form-control" 
+                            name="permission" 
                             ng-change = "controlDisabledRegistra()"
-                            required>
+                            id="permission" 
+                            ng-model="permission"
+                            required
+                        >
+                            <option value = "">--- SELECT ---</option>
+                            <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.descrizione}}</option>
+                        </select>
                     </div> 
                     <div class="col-sm-6">
                         <label 
@@ -60,22 +90,6 @@
                             title="{{title_email}}"
                             required />
                     </div>
-                </div> 
-                <div class="row">
-                    <div class="col-sm-6">
-                        <label>Permessi</label>
-                        <select 
-                            class="form-control" 
-                            name="permission" 
-                            ng-change = "controlDisabledRegistra()"
-                            id="permission" 
-                            ng-model="permission"
-                            required
-                        >
-                            <option value = "">--- SELECT ---</option>
-                            <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.descrizione}}</option>
-                        </select>
-                    </div> 
                 </div> 
                 
                 <button class="btn btn-outline-success btn-round" ng-click="registra()" ng-disabled = "user.$invalid || disab ">Register</button>

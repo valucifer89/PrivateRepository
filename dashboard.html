@@ -61,7 +61,7 @@
                     </li>
                     
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="" role="button" aria-haspopup="true" aria-expanded="false" ng-show = "documenti">{{documenti}}</a>
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="" role="button" aria-haspopup="true" aria-expanded="false" ng-show = "documenti"><i class="nc-icon nc-book-bookmark"></i> {{documenti}}</a>
                         <ul class="dropdown-menu dropdown-info" aria-labelledby="dropdownMenuButton" ng-show = "documenti">
                             <li class="dropdown-header" >Documenti</li>
                             <a class="dropdown-item" href="{{href_leggi_documenti}}">{{leggi_documenti}}</a>
@@ -71,6 +71,10 @@
                             <a class="dropdown-item" href="{{href_leggi_defect}}">{{leggi_defect}}</a>
                             <a class="dropdown-item" href="{{href_inserisci_defect}}" ng-show = "inserisci_defect">{{inserisci_defect}}</a>
                         </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="" class="scrolly nav-link logOut" ng-click = "logout()"><i class="nc-icon nc-book-bookmark"></i> Logout</a>
                     </li>
                     
                 </ul>

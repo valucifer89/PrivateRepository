@@ -90,7 +90,7 @@ $(document).ready(function(){
         var goPage = $(this).attr("class");
         
         if(!goPage.includes("goPage")){
-            if(!goPage.includes("dropdown-toggle")){
+            if(!goPage.includes("dropdown-toggle") && !goPage.includes("logOut")){
                 $("html, body").animate({
                     scrollTop: $(section).offset().top
                 }, 1000);

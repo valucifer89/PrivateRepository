@@ -67,6 +67,11 @@ var project = angular.module('myProject', []);
         //Esecuzione delle funzioni
         getPageForMenu();
         
+        $scope.logout = function(){
+            sessionStorage.clear();
+            $window.location.href= "https://vdemastro2.000webhostapp.com/login.html";
+        }
+        
     }]);
     
     

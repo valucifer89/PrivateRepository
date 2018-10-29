@@ -107,6 +107,10 @@ var dashboard = angular.module('myDashboard', []);
         //Esecuzione delle funzioni
         getPageForMenu();
         
+        $scope.logout = function(){
+            sessionStorage.clear();
+            $window.location.href= "https://vdemastro2.000webhostapp.com/login.html";
+        }
     }]);
     
     
